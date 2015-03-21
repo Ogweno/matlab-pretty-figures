@@ -28,31 +28,16 @@ validNumberStyle = {'fixed','sci'};
 defaultNumberStyle = 'fixed';
 checkNumberStyle = @(x) any(validatestring(x,validNumberStyle));
 
-%Legend direction
-validLegendDirection = {'horiz','vert'};
-defaultLegendDirection = ''; 
-checkLegendDirection = @(x) any(validatestring(x,validLegendDirection));
-
-%Legend location
-validLegendLocation = {'North','South','East','West', ...
-                    'NorthOutside','SouthOutside', 'EastOutside','WestOutSide',...
-                    'NorthEast','NorthWest',...
-                    'SouthEast','SouthWest'};
-defaultLegendLocation = 'NorthEast';
-checkLegendLocation = @(x) any(validatestring(x,validLegendLocation));
-
 parsedObject.addParameter('figureHeight',3,@isnumeric);
 parsedObject.addParameter('isStrict',false,@isbool);
 parsedObject.addParameter('showInfo',false,@isbool);
-parsedObject.addParameter('showWarnings',false,@isbool);
+parsedObject.addParameter('showWarnings',true,@isbool);
 parsedObject.addParameter('strictFontSize',false,@isbool);
 parsedObject.addParameter('noSize',true,@isbool);
 parsedObject.addParameter('allowScaling',false,@isbool);
 parsedObject.addParameter('moveXScale',true,@isbool);
 parsedObject.addParameter('extraAxisOptions',{},@iscell);
 parsedObject.addParameter('numberStyle',defaultNumberStyle,checkNumberStyle);
-parsedObject.addParameter('legendDirection',defaultLegendDirection,checkLegendDirection);
-parsedObject.addParameter('legendLocation',defaultLegendLocation,checkLegendLocation);
 
 %Parsing options.
 parsedObject.CaseSensitive = false;

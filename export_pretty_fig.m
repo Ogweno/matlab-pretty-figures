@@ -58,8 +58,6 @@ tikz.allowScaling     = extraOptions.Results.allowScaling     ;
 tikz.numberStyle      = extraOptions.Results.numberStyle      ; 
 tikz.moveXScale       = extraOptions.Results.moveXScale       ; 
 tikz.extraAxisOptions = extraOptions.Results.extraAxisOptions ;
-tikz.legendDirection  = extraOptions.Results.legendDirection  ;
-tikz.legendLocation   = extraOptions.Results.legendLocation   ;
 
 %Default extraAxisOptions.
 tikz.extraAxisOptions = [tikz.extraAxisOptions, ...
@@ -103,48 +101,6 @@ if tikz.moveXScale
     tikz.extraAxisOptions = [tikz.extraAxisOptions ...
                         ['every x tick scale label/.style={at={(1,0)},xshift=4pt,anchor=south ' ...
                         'west,inner sep=0pt}']];
-end
-
-%Add legend direction.
-switch tikz.legendDirection
-  case 'horiz'
-     tikz.extraAxisOptions = [tikz.extraAxisOptions ...
-                         'legend columns=-1'];
-  case 'vert'
-     tikz.extraAxisOptions = [tikz.extraAxisOptions ...
-                         'legend columns=1'];
-  otherwise
-    %Do nothing.
-end
-
-%Add legend location
-switch tikz.legendLocation
-  case 'North'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend style={at={(0.5,0.97)},anchor=north}'];
-  case 'South'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend style={at={(0.5,0.03)},anchor=south}'];
-  case 'East'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend style={at={(0.97,0.5)},anchor=east}'];
-  case 'West'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend style={at={(0.03,0.05)},anchor=west}'];
-  case 'NorthOutside'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend style={at={(0.5,1.03)},anchor=south}'];
-  case 'SouthOutside'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend style={at={(0.5,-0.1)},anchor=north}'];  
-  case 'EastOutside'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend style={at={(1.03,0.5)},anchor=west}'];
-  case 'WestOutside'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend style={at={(-0.1,0.5)},anchor=east}'];
-  case 'NorthEast'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend pos=north east'];
-  case 'NorthWest'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend pos=north west'];
-  case 'SouthEast'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend pos=south east'];
-  case 'SouthWest'
-    tikz.extraAxisOptions = [tikz.extraAxisOptions 'legend pos=south west'];
-  otherwise
-    %Do nothing
 end
 
 %Pass the options to matlab2tikz
