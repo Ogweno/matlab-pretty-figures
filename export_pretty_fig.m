@@ -31,6 +31,10 @@ set(figureHandle,'Color','w'); %Set the background to white
 set(figureAxes,'FontSize', ticksFontSize);
 set(figureAxes,'FontName','Times New Roman');
 
+%Change legend font size and interpretor.
+legendHandle = findobj(figureHandle,'Type','Legend');
+set(legendHandle,'Interpreter','latex','FontSize',ticksFontSize+2);
+
 %===============================================================================
 % Export using export_fig
 %===============================================================================
