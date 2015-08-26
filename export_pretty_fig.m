@@ -20,11 +20,11 @@ figureAxes = get(figureHandle,'CurrentAxes');
 pbaspect(figureAxes,[aspectRatio 1 1]);
 
 if drawGrid
-    grid on; set(figureAxes,'gridlinestyle','-');
+    grid(figureAxes,'on'); set(figureAxes,'gridlinestyle','-');
 end
 
 if drawBox   
-    box on;
+    box(figureAxes,'on');
 end
 
 set(figureHandle,'Color','w'); %Set the background to white
@@ -35,6 +35,13 @@ set(figureAxes,'FontName','Times New Roman');
 legendHandle = findobj(figureHandle,'Type','Legend');
 set(legendHandle,'Interpreter','latex','FontSize',ticksFontSize+2);
 
+%Change label size and interpreter.
+xLabelHandle = get(figureAxes,'XLabel');
+set(xLabelHandle,'Interpreter','latex','FontSize',16);
+yLabelHandle = get(figureAxes,'YLabel');
+set(yLabelHandle,'Interpreter','latex','FontSize',16);
+titleHandle = get(figureAxes,'Title');
+set(titleHandle,'Interpreter','latex');
 %===============================================================================
 % Export using export_fig
 %===============================================================================
