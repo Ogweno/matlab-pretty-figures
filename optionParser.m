@@ -7,8 +7,8 @@ parsedObject = inputParser;
 % Common options
 %===============================================================================
 parsedObject.addParameter('aspectRatio',1.618,@isnumeric); %Default ratio is Golden Ratio.
-parsedObject.addParameter('drawGrid',true,@isbool);
-parsedObject.addParameter('drawBox',true,@isbool);
+parsedObject.addParameter('drawGrid',true,@islogical);
+parsedObject.addParameter('drawBox',true,@islogical);
 parsedObject.addParameter('ticksFontSize',14,@isnumeric);
 
 %===============================================================================
@@ -29,13 +29,13 @@ defaultNumberStyle = 'fixed';
 checkNumberStyle = @(x) any(validatestring(x,validNumberStyle));
 
 parsedObject.addParameter('figureHeight',3,@isnumeric);
-parsedObject.addParameter('isStrict',false,@isbool);
-parsedObject.addParameter('showInfo',false,@isbool);
-parsedObject.addParameter('showWarnings',true,@isbool);
-parsedObject.addParameter('strictFontSize',false,@isbool);
-parsedObject.addParameter('noSize',true,@isbool);
-parsedObject.addParameter('allowScaling',false,@isbool);
-parsedObject.addParameter('moveXScale',true,@isbool);
+parsedObject.addParameter('isStrict',false,@islogical);
+parsedObject.addParameter('showInfo',false,@islogical);
+parsedObject.addParameter('showWarnings',true,@islogical);
+parsedObject.addParameter('strictFontSize',false,@islogical);
+parsedObject.addParameter('noSize',true,@islogical);
+parsedObject.addParameter('allowScaling',false,@islogical);
+parsedObject.addParameter('moveXScale',true,@islogical);
 parsedObject.addParameter('extraAxisOptions',{},@iscell);
 parsedObject.addParameter('numberStyle',defaultNumberStyle,checkNumberStyle);
 
